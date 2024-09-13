@@ -1,0 +1,62 @@
+/* Card Container Styling */
+.card-container {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 50px auto;
+  }
+  
+  .card-container .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .card-container label {
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .card-container .form-control {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .card-container .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.1);
+  }
+  
+  .card-container .btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .card-container .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .card-container .alert {
+    font-size: 14px;
+    margin-top: 15px;
+  }
+  
+  .card-container .spinner-border {
+    margin-right: 5px;
+  }
+  
+  .App {
+    margin-top: 30px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+  }
+  

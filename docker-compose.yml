@@ -1,0 +1,65 @@
+
+services:
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - server
+      - chatapp
+      - react
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./src/build:/usr/share/nginx/html  # React build output as static files
+
+
+  # Node.js Backend
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    depends_on:
+      - prisma
+
+  # Chatapp (Kafka + Prisma + Sockets)
+  chatapp:
+    build:
+      context: ./src/chatapp
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+
+    depends_on:
+      - prisma
+
+  # Prisma for database interaction
+  prisma:
+    build:
+      context: ./src/chatapp/prisma
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+
+  # React Frontend
+  react:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    depends_on:
+      - server
+
+
+
